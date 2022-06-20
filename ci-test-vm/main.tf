@@ -4,7 +4,7 @@ provider "hcloud" {
 }
 
 # Create a new SSH key
-resource "hcloud_ssh_key" "ansible-test-ssh-key" {
+resource "hcloud_ssh_key" "ansible-test-ssh-key-ts" {
   name = "ssh-ts-1"
   public_key = file(var.ssh_key)
 }
@@ -23,7 +23,7 @@ resource "hcloud_server" "ansible-test-vm" {
     command = "sleep 20; ssh-keygen -R ${hcloud_server.ansible-test-vm.ipv4_address}; ssh-keyscan -t rsa -H ${hcloud_server.ansible-test-vm.ipv4_address} >> ~/.ssh/known_hosts"
   }
   depends_on = [
-    hcloud_ssh_key.ansible-test-ssh-key
+    hcloud_ssh_key.ansible-test-ssh-key-ts
   ]
 }
 
