@@ -11,7 +11,7 @@ resource "hcloud_ssh_key" "ansible-test-ssh-key" {
 
 # Create a server
 resource "hcloud_server" "ansible-test-vm" {
-  name = "ansible-test-instance"
+  name = "ansible-test-instance-ts"
   image = "ubuntu-20.04"
   server_type = "cx11"
   location = "nbg1"
