@@ -9,6 +9,7 @@ resource "hcloud_ssh_key" "ansible-test-ssh-key" {
   public_key = file(var.ssh_key)
 }
 
+
 # Create a server
 resource "hcloud_server" "ansible-test-vm" {
   name = "ansible-test-instance-ts"
